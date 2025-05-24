@@ -1,5 +1,20 @@
 project("OpenGLide")
 	kind("StaticLib")
 	files("src/*.cpp")
+	files("src/platform/sdl/*.cpp")
+	filter({"platforms:Native", "system:bsd"})
+		includedirs({
+			"/usr/X11R6/include",
+			"/usr/X11R7/include"
+		})
+	filter({})
+	filter({"system:windows"})
+		files("src/platform/windows/*.cpp")
+		includedirs("src/platform/windows")
+	filter({"system:not windows"})
+		files("src/platform/linux/*.cpp")
+		includedirs("src/platform/linux")
+	filter({})
+	includedirs("src")
 	includedirs("include")
 	includedirs("include/sdk")

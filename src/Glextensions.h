@@ -13,7 +13,7 @@
 #ifndef __GLEXTENSIONS__
 #define __GLEXTENSIONS__
 
-#include "glext.h"
+#include <GL/glext.h>
 
 void ValidateUserConfig();
 
