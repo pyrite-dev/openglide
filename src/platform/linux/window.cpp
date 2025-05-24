@@ -182,10 +182,15 @@ bool InitialiseOpenGLWindow(FxU wnd, int x, int y, int width, int height)
     else
         mask = CWBackPixel | CWBorderPixel | CWColormap | CWEventMask;
 
-    win = XCreateWindow(dpy, root, 0, 0, width, height,
-                        0, visinfo->depth, InputOutput,
-                        visinfo->visual, mask, &attr);
-    XMapWindow(dpy, win);
+    if(wnd == 0)
+    {
+        win = XCreateWindow(dpy, root, 0, 0, width, height,
+                            0, visinfo->depth, InputOutput,
+                            visinfo->visual, mask, &attr);
+        XMapWindow(dpy, win);
+    }else{
+	win = wnd;
+    }
 
     if (mode_changed)
     {
