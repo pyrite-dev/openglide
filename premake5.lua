@@ -1,0 +1,5 @@
+project("OpenGLide")
+	kind("StaticLib")
+	files("src/*.cpp")
+	includedirs("include")
+	includedirs("include/sdk")
