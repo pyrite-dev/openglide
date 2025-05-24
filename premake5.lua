@@ -1,6 +1,7 @@
 project("OpenGLide")
 	kind("StaticLib")
 	targetdir("lib/%{cfg.buildcfg}/%{cfg.platform}")
+	targetname("glide2x")
 	files("src/*.cpp")
 	files("src/platform/sdl/*.cpp")
 	filter({"platforms:Native", "system:bsd"})
